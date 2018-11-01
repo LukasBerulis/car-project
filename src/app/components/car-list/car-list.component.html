@@ -1,0 +1,16 @@
+<app-tyre-input (submitButtonClick)="addNewTyre($event)"></app-tyre-input>
+<app-engine-input (submitButtonClick)="addNewEngine($event)"></app-engine-input>
+<app-car-input [car]="newCar" [buttonText]="'Add'" (submitButtonClick)="addNewCar($event)"></app-car-input>
+<table *ngIf="cars.length > 0">
+  <tr>
+    <th>ID</th>
+    <th>Model</th>
+    <th>Details</th>
+  </tr>
+  <tr *ngFor="let car of cars" (click)="onCarRowClick(car)">
+    <td>{{car.id}}</td>
+    <td>{{car.model}}</td>
+    <td>{{car.otherInformation}}</td>
+  </tr>
+</table>
+<p *ngIf="cars.length == 0">Car list is empty.</p>

@@ -1,0 +1,21 @@
+<form #engineInputForm="ngForm" (ngSubmit)="onSubmit(engineInputForm)">
+  <div>
+    <md-input-container>
+      <input mdInput placeholder="Name" type="text" [(ngModel)]="engine.name" id="name" required name="engineName" #tyreNameInput="ngModel">
+    </md-input-container>
+    <p [hidden]="tyreNameInput.valid || !tyreNameInput.touched">Name is required.</p>
+  </div>
+  <div>
+    <md-input-container>
+      <textarea mdInput placeholder="Power" [(ngModel)]="engine.power" id="radius" name="tyreRadius"></textarea>
+    </md-input-container>
+  </div>
+  <div>
+    <md-input-container>
+      <textarea mdInput placeholder="Size" [(ngModel)]="engine.size" id="width" name="tyreWidth"></textarea>
+    </md-input-container>
+  </div>
+  <div>
+    <button md-raised-button [disabled]="!engineInputForm.form.valid" (click)="onButtonClick()">Add</button>
+  </div>
+</form>

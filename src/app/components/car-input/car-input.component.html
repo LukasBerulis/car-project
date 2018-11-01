@@ -1,0 +1,20 @@
+<form #carInputForm="ngForm" (ngSubmit)="onSubmit(carInputForm)">
+  <div>
+    <md-input-container>
+      <input mdInput placeholder="Model" type="text" [(ngModel)]="car.model" id="name" required name="carName" #carNameInput="ngModel">
+    </md-input-container>
+    <p [hidden]="carNameInput.valid || !carNameInput.touched">Name is required.</p>
+  </div>
+  <div>
+    <md-input-container>
+      <textarea mdInput placeholder="Details" [(ngModel)]="car.otherInformation" id="details" name="carDetails"></textarea>
+    </md-input-container>
+  </div>
+  <div>
+    <input placeholder="Image" type="file" (change)="onFileChange($event)" />
+    <button type="button" md-icon-button [disabled]="!image" (click)="uploadImage()"><md-icon>file_upload</md-icon></button>
+  </div>
+  <div>
+    <button md-raised-button [disabled]="!carInputForm.form.valid" (click)="onButtonClick()">{{buttonText}}</button>
+  </div>
+</form>

@@ -1,0 +1,12 @@
+<button (click)="onBackClick()">Back</button>
+<div *ngIf="car != null">
+  <button type="button" (click)="toggleDetailsSelector()">Select tyres and engine</button>
+  <app-details-selector *ngIf="showDetailsSelector" (engineSelected)="onEngineSelected($event)" (tyreSelected)="onTyreSelected($event)"></app-details-selector>
+  <p>Id: {{car.id}}</p>
+  <p>Model: {{car.model}}</p>
+  <p>Details: {{car.otherInformation}}</p>
+  <app-tyre-info [tyre]="tyre"></app-tyre-info>
+  <app-car-info [engine]="engine"></app-car-info>
+  <img *ngIf="car.imageUrl" src="{{getImageUrl()}}" class="car-image">
+</div>
+<p *ngIf="car == null">Car not found.</p>

@@ -1,0 +1,28 @@
+<p>SELECT TYRES:</p>
+<table *ngIf="tyres.length > 0">
+  <tr>
+    <th>Name</th>
+    <th>Width</th>
+    <th>Radius</th>
+    <th>Height</th>
+  </tr>
+  <tr *ngFor="let tyre of tyres" (click)="onTyreClick(tyre)">
+    <td>{{tyre.name}}</td>
+    <td>{{tyre.width}}</td>
+    <td>{{tyre.radius}}</td>
+    <td>{{tyre.height}}</td>
+  </tr>
+</table>
+
+<table *ngIf="engines.length > 0">
+  <tr>
+    <th>Name</th>
+    <th>Power</th>
+    <th>Size</th>
+  </tr>
+  <tr *ngFor="let engine of engines" (click)="onEngineClick(engine)">
+    <td>{{engine.name}}</td>
+    <td>{{engine.power}}</td>
+    <td>{{engine.size}}</td>
+  </tr>
+</table>
